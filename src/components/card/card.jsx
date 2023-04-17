@@ -70,7 +70,11 @@ const products = [
 
 export default function Card() {
 
-    const [showPreview] = useState(true);
+    const [showPreview, setShowPreview] = useState(false);
+
+    function handleClick() {
+        setShowPreview(!showPreview)
+    }
 
     return (
         <div className="flex">
@@ -80,7 +84,7 @@ export default function Card() {
                     <div
                         className={classNames("grid grid-cols-1 gap-x-5 gap-y-5 xl:gap-x-5", {"grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3": showPreview}, {"sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4": !showPreview})}>
                         {products.map((product) => (
-                            <a key={product.id} href={product.href}
+                            <button key={product.id} onClick={handleClick}
                                className="group primary-background-color py-5 rounded-3xl px-4">
                                 <div
                                     className="aspect-h-1 aspect-w-1 w-full overflow-hidden bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
@@ -123,16 +127,14 @@ export default function Card() {
                                         <p className="flex justify-center gray-color font-size-13">6 Speed</p>
                                     </div>
                                 </div>
-                            </a>
+                            </button>
                         ))}
                     </div>
-                    {/*{showPreview && (*/}
-                    {/*)}*/}
                 </div>
             </div>
             {showPreview && (
                 <>
-                    <Preview/>
+                    <Preview setShowPreview={setShowPreview}/>
                 </>
             )}
         </div>

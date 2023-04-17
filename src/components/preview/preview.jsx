@@ -10,13 +10,13 @@ import {
 import car1 from "../../assets/images/1.png";
 import avatarPic from "../../assets/images/_D1A8546-min-min-min-min.jpg";
 
-export default function Preview() {
+export default function Preview({setShowPreview}) {
     return (
         <>
             <div className="flex basis-1/3 py-24 pr-10">
                 <div
                     className="mx-auto max-w-2xl py-8 px-2 lg:max-w-7xl secondary-background-color rounded-3xl w-full relative">
-                    <button className="absolute top-0 right-0 gray-color font-size-24 p-3">
+                    <button onClick={() => setShowPreview(false) } className="absolute top-0 right-0 gray-color font-size-24 p-3">
                         <FontAwesomeIcon icon={faTimesCircle}/>
                     </button>
                     <a>
