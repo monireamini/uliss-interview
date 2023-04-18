@@ -1,6 +1,7 @@
 import './App.css';
 import Sidebar from "./components/sidebar/sidebar";
 import Card from "./components/card/card";
+import Search from "./components/search/search";
 
 function App() {
 
@@ -8,6 +9,7 @@ function App() {
       <>
         <Sidebar/>
         <div className="width-sidebar">
+            <Search/>
           <Card/>
         </div>
       </>
