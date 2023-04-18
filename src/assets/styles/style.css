@@ -125,3 +125,7 @@ input::placeholder{
     color: #efefef !important;
 }
 
+.custom-w-150{
+    width: 150px;
+}
+
