@@ -117,14 +117,6 @@ body{
     font-weight: 600;
 }
 
-input::placeholder{
-    color: #767595 !important;
-}
-
-.MuiButtonBase-root{
-    color: #efefef !important;
-}
-
 .custom-w-150{
     width: 150px;
 }

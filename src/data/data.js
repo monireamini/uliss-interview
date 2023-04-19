@@ -1,4 +1,5 @@
-const data = [
+const city = [
+    {id: 0, name: 'none'},
     {id: 1, name: 'IR - Tehran'},
     {id: 2, name: 'GE - Tbilisi'},
     {id: 3, name: 'AU - Sydney'},

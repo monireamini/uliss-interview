@@ -12,7 +12,7 @@ function App() {
         <div className="width-sidebar">
             <Search/>
             <Slider/>
-          <Card/>
+            <Card/>
         </div>
       </>
   );

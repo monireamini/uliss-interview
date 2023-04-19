@@ -1,7 +1,10 @@
 import MyDatePicker from "../MyDatePicker";
 import MyTextField from "../MyTextField";
+import MySelect from "../MySelect";
+import { useSelector } from "react-redux";
 
 export default function Search() {
+    const data = useSelector((state) => state.data.data);
 
     return (
         <>
@@ -9,9 +12,8 @@ export default function Search() {
                 <MyDatePicker/>
                 <MyDatePicker/>
                 <MyDatePicker/>
-                <MyDatePicker/>
                 <MyTextField/>
-
+                <MySelect name="city" value={data}/>
             </div>
         </>
     );
