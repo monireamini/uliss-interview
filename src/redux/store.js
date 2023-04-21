@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
-import dataReducer from '../redux/data/index';
+import dataReducer from './data';
+
+const reducer = {
+    data:  dataReducer
+}
 
 const store = configureStore({
-    reducer: {
-        data: dataReducer,
-    },
+    reducer: reducer
 });
 
 export default store;

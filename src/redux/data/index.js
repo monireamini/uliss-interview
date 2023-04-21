@@ -1,11 +1,157 @@
 import {createSlice} from "@reduxjs/toolkit";
-// Slice
+import car1 from '../../assets/images/1.png';
+import car2 from '../../assets/images/2.png';
+import car3 from '../../assets/images/3.png';
+import car4 from '../../assets/images/4.png';
+import car5 from '../../assets/images/5.png';
+import car6 from '../../assets/images/6.png';
+import car7 from '../../assets/images/7.png';
+import myPic from '../../assets/images/_D1A8546-min-min-min-min.jpg'
 
 const initialState = {
-    data: [
+    cities : [
+        {id: 0, name: 'none'},
         {id: 1, name: 'IR - Tehran'},
         {id: 2, name: 'GE - Tbilisi'},
         {id: 3, name: 'AU - Sydney'},
+    ],
+    brands : [
+        {id: 1, img: car1, name: 'OPEL'},
+        {id: 2, img: car2, name: 'Mercedes'},
+        {id: 3, img: car3, name: 'Tesla'},
+        {id: 4, img: car4, name: 'GOLF'},
+        {id: 5, img: car5, name: 'Ford'},
+        {id: 6, img: car6, name: 'Porsche'},
+        {id: 7, img: car7, name: 'BMW'},
+        {id: 8, img: car1, name: 'TOYOTA'},
+    ],
+    cars : [
+        {
+            id: 1001,
+            img: car1,
+            brandId: 3,
+            model: 'X',
+            productionYear: 2021,
+            pricePerDay: 400,
+            locationId: 2,
+            Fuel: 'Electric',
+            Cylinder: 9,
+            speed: 6,
+            rate: '5.0',
+            numberOfReviews: 21,
+            oneDayRentalAvailable: true,
+            numOfSeats: 4,
+            numOfDoors: 2,
+            bhValue: 651.9,
+            description: 'There are many variations of passages of available, but the majority have suffered alteration in some form. by injected …',
+            owner: {name: 'Keenan', rate: '5.0', allStarHost: true, img: myPic},
+            availableMonths: ['April', 'May', 'June', 'October'],
+        },
+        {
+            id: 1002,
+            img: car2,
+            brandId: 8,
+            model: 'M',
+            productionYear: 2018,
+            pricePerDay: 380,
+            locationId: 1,
+            Fuel: 'Gas',
+            Cylinder: 9,
+            speed: 6,
+            rate: '4.8',
+            numberOfReviews: 16,
+            oneDayRentalAvailable: true,
+            numOfSeats: 6,
+            numOfDoors: 4,
+            bhValue: 241.9,
+            description: 'There are many variations of passages of available, but the majority have suffered alteration in some form. by injected …',
+            owner: {name: 'James', rate: '4.2', allStarHost: false, img: myPic},
+            availableMonths: ['May', 'June', 'December'],
+        },
+        {
+            id: 1003,
+            img: car3,
+            brandId: 5,
+            model: 'Y',
+            productionYear: 2016,
+            pricePerDay: 410,
+            locationId: 3,
+            Fuel: 'Gas',
+            Cylinder: 4,
+            speed: 5,
+            rate: '4.7',
+            numberOfReviews: 88,
+            oneDayRentalAvailable: false,
+            numOfSeats: 2,
+            numOfDoors: 2,
+            bhValue: 901.9,
+            description: 'There are many variations of passages of available, but the majority have suffered alteration in some form. by injected …',
+            owner: {name: 'Archer', rate: '3.2', allStarHost: false, img: myPic},
+            availableMonths: ['Apr', 'June', 'July', 'August'],
+        },
+        {
+            id: 1004,
+            img: car4,
+            brandId: 7,
+            model: 'Z',
+            productionYear: 2023,
+            pricePerDay: 440,
+            locationId: 3,
+            Fuel: 'Gas',
+            Cylinder: 4,
+            speed: 6,
+            rate: '5.0',
+            numberOfReviews: 37,
+            oneDayRentalAvailable: true,
+            numOfSeats: 2,
+            numOfDoors: 2,
+            bhValue: 782.9,
+            description: 'There are many variations of passages of available, but the majority have suffered alteration in some form. by injected …',
+            owner: {name: 'Ario', rate: '4.6', allStarHost: false, img: myPic},
+            availableMonths: ['May', 'July', 'September', 'November'],
+        },
+        {
+            id: 1005,
+            img: car5,
+            brandId: 2,
+            model: 'C',
+            productionYear: 2010,
+            pricePerDay: 370,
+            locationId: 2,
+            Fuel: 'Electric',
+            Cylinder: 4,
+            speed: 6,
+            rate: '4.3',
+            numberOfReviews: 1204,
+            oneDayRentalAvailable: true,
+            numOfSeats: 4,
+            numOfDoors: 4,
+            bhValue: 555.9,
+            description: 'There are many variations of passages of available, but the majority have suffered alteration in some form. by injected …',
+            owner: {name: 'Alexander', rate: '5.0', allStarHost: true, img: myPic},
+            availableMonths: ['July', 'August', 'September', 'October'],
+        },
+        {
+            id: 1006,
+            img: car6,
+            brandId: 1,
+            model: 'H',
+            productionYear: 2019,
+            pricePerDay: 399,
+            locationId: 1,
+            Fuel: 'Electric',
+            Cylinder: 4,
+            speed: 5,
+            rate: '4.6',
+            numberOfReviews: 102,
+            oneDayRentalAvailable: true,
+            numOfSeats: 2,
+            numOfDoors: 2,
+            bhValue: 909.9,
+            description: 'There are many variations of passages of available, but the majority have suffered alteration in some form. by injected …',
+            owner: {name: 'Harry', rate: '4.9', allStarHost: true, img: myPic},
+            availableMonths: ['April', 'May', 'September', 'October', 'November', 'December'],
+        },
     ],
 };
 
@@ -16,12 +162,9 @@ const dataSlice = createSlice({
         addData: (state, action) => {
             state.data.push(action.payload);
         },
-        removeData: (state, action) => {
-            state.data = state.data.filter((item) => item.id !== action.payload);
-        },
     },
 });
 
-export const { addData, removeData } = dataSlice.actions;
+export const { addData } = dataSlice.actions;
 
 export default dataSlice.reducer;

@@ -4,15 +4,14 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import {useState} from "react";
+import {useSelector} from "react-redux";
 
-export default function MySelect({name, value}) {
-
+export default function MySelect({name}) {
+    const cities = useSelector((state) => state.data.cities);
     const [target, setTarget] = useState();
     const handleChange = (event) => {
         setTarget(event.target.value);
     };
-
-    React.useEffect(() => {}, [target]);
 
     return (
         <div>
@@ -25,7 +24,7 @@ export default function MySelect({name, value}) {
                     label=""
                     onChange={handleChange}
                 >
-                    {value.map((item) =>
+                    {cities.map((item) =>
                         <MenuItem key={item.id} value="item.name">
                             <em>{item.name}</em>
                         </MenuItem>

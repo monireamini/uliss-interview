@@ -4,7 +4,7 @@ import MySelect from "../MySelect";
 import { useSelector } from "react-redux";
 
 export default function Search() {
-    const data = useSelector((state) => state.data.data);
+    // const city = useSelector((state) => state.data.cities);
 
     return (
         <>
@@ -13,7 +13,7 @@ export default function Search() {
                 <MyDatePicker/>
                 <MyDatePicker/>
                 <MyTextField/>
-                <MySelect name="city" value={data}/>
+                {/*<MySelect name="city" value={data}/>*/}
             </div>
         </>
     );

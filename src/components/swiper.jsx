@@ -1,27 +1,28 @@
 import {Swiper, SwiperSlide} from "swiper/react";
-import car1 from "../assets/images/1.png";
-// Import Swiper styles
 import 'swiper/css';
+import {useSelector} from "react-redux";
+import * as React from "react";
 
 export default function Slider() {
+    const brands = useSelector((state) => state.data.brands);
+
     return (
         <>
             <Swiper
                 className="mt-3"
                 spaceBetween={20}
                 slidesPerView={7}
-                onSlideChange={() => console.log('slide change')}
-                onSwiper={(swiper) => console.log(swiper)}
             >
-                <SwiperSlide className="primary-background-color rounded-3xl"><div className="flex justify-center items-center gap-3 p-2"><img style={{width: 75}} src={car1} alt={'car1'} /><div className="gray-color">opel</div></div></SwiperSlide>
-                <SwiperSlide className="primary-background-color rounded-3xl"><div className="flex justify-center items-center gap-3 p-2"><img style={{width: 75}} src={car1} alt={'car1'} /><div className="gray-color">pride</div></div></SwiperSlide>
-                <SwiperSlide className="primary-background-color rounded-3xl"><div className="flex justify-center items-center gap-3 p-2 "><img style={{width: 75}} src={car1} alt={'car1'} /><div className="gray-color">benz</div></div></SwiperSlide>
-                <SwiperSlide className="primary-background-color rounded-3xl"><div className="flex justify-center items-center gap-3 p-2"><img style={{width: 75}} src={car1} alt={'car1'} /><div className="gray-color">toyota</div></div></SwiperSlide>
-                <SwiperSlide className="primary-background-color rounded-3xl"><div className="flex justify-center items-center gap-3 p-2"><img style={{width: 75}} src={car1} alt={'car1'} /><div className="gray-color">saipa</div></div></SwiperSlide>
-                <SwiperSlide className="primary-background-color rounded-3xl"><div className="flex justify-center items-center gap-3 p-2"><img style={{width: 75}} src={car1} alt={'car1'} /><div className="gray-color">das</div></div></SwiperSlide>
-                <SwiperSlide className="primary-background-color rounded-3xl"><div className="flex justify-center items-center gap-3 p-2"><img style={{width: 75}} src={car1} alt={'car1'} /><div className="gray-color">das</div></div></SwiperSlide>
-                <SwiperSlide className="primary-background-color rounded-3xl"><div className="flex justify-center items-center gap-3 p-2"><img style={{width: 75}} src={car1} alt={'car1'} /><div className="gray-color">das</div></div></SwiperSlide>
-                <SwiperSlide className="primary-background-color rounded-3xl"><div className="flex justify-center items-center gap-3 p-2"><img style={{width: 75}} src={car1} alt={'car1'} /><div className="gray-color">das</div></div></SwiperSlide>
+                {brands.map((item) =>
+                    <SwiperSlide key={item.id}>
+                        <div style={{minWidth: 190}} className="primary-background-color rounded-3xl">
+                            <div className="flex justify-center items-center gap-3 p-2">
+                                <img style={{width: 75, height: 56}} src={item.img} alt={'car1'}/>
+                                <div className="gray-color">{item.name}</div>
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                )}
             </Swiper>
         </>
     );

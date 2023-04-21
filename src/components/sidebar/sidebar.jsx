@@ -5,6 +5,7 @@ import avatarPic from '../../assets/images/_D1A8546-min-min-min-min.jpg';
 import ButtonItems from "../buttonItems";
 
 export default function Sidebar() {
+
     return (
         <>
             <div className="fixed h-full left-0 primary-background-color" style={{width: 90}}>

@@ -1,16 +1,16 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
     faBolt,
-    faCar,
+    faCar, faChartLine, faCircle, faDoorOpen,
     faGasPump,
     faLocationDot,
     faStar,
     faStopwatch, faTimesCircle,
 } from "@fortawesome/free-solid-svg-icons";
-import car1 from "../../assets/images/1.png";
-import avatarPic from "../../assets/images/_D1A8546-min-min-min-min.jpg";
 
-export default function Preview({setShowPreview}) {
+export default function Preview({setShowPreview, cars, cities, carID, brands}) {
+    const result = cars.find( car  => car.id === carID);
+
     return (
         <>
             <div className="flex basis-1/3 py-24 pr-10">
@@ -24,34 +24,34 @@ export default function Preview({setShowPreview}) {
                             <FontAwesomeIcon className="gray-color pr-1 font-size-24" icon={faLocationDot}/>
                         </div>
                         <div className="flex justify-center items-center gray-color py-3">
-                            GE,TBLIAISIS
+                            {cities.map(city => city.id == result.locationId ? city.name : '')}
                         </div>
                         <div className="rounded-3xl w-full primary-background-color">
                             <div className="flex p-2">
-                                <img className="h-16 w-16 rounded-full self-center" src={avatarPic}
+                                <img className="h-16 w-16 rounded-full self-center" src={result.owner.img}
                                      alt="avatar"/>
                                 <div className="flex flex-col p-2 w-full">
                                     <div className="flex justify-between items-center">
                                         <div className="gray-color font-bold">
-                                            Alborz Moon
+                                            {result.owner.name}
                                         </div>
-                                        <div className="bold text-color font-bold font-size-24">400$<span
+                                        <div className="bold text-color font-bold font-size-24">{result.pricePerDay}$<span
                                             className="gray-color font-size-18">/Day</span></div>
                                     </div>
                                     <div className="flex justify-between items-center">
-                                        <div className="gray-color font-size-13">
-                                            front-end-developer
+                                        <div className="gray-color font-size-13"> review:
+                                            {result.numberOfReviews}
                                         </div>
                                         <div className="gray-color font-size-13">
-                                            $184 essentials
+                                            doors: {result.numOfDoors}
                                         </div>
                                     </div>
                                     <div className="flex justify-between items-center">
                                         <div className="gray-color font-size-13">
-                                            34 tips join in the class
+                                            seats: {result.numOfSeats}
                                         </div>
                                         <div className="gray-color font-size-16 font-bold">
-                                            5.0<FontAwesomeIcon className="font-size-13 px-1 blue-color"
+                                            {result.rate}<FontAwesomeIcon className="font-size-13 px-1 blue-color"
                                                                 icon={faStar}/>
                                         </div>
                                     </div>
@@ -61,24 +61,24 @@ export default function Preview({setShowPreview}) {
                         <div className="rounded-3xl w-full primary-background-color mt-2">
                             <div className="flex p-2">
                                 <img
-                                    src={car1}
-                                    alt={car1}
+                                    src={result.img}
+                                    alt={result.alt}
                                     className="w-full object-cover object-center group-hover:opacity-75 p-2"
                                     style={{width: 140, objectFit: "contain"}}
                                 />
                                 <div className="flex flex-col p-1 w-full">
-                                    <div className="text-color font-bold">Tesla Model X
+                                    <div className="text-color font-bold">{result.model}
                                     </div>
                                     <div className="gray-color font-size-13 py-1">
-                                        229 Xd dive
+                                        {brands.map(brand => brand.id == result.brandId ? brand.name : '')}
                                     </div>
                                     <div className="gray-color font-size-13">
                                         <FontAwesomeIcon className="px-1" icon={faStopwatch}/>
-                                        1 day available rental car
+                                        {result.oneDayRentalAvailable ? '1 day available rental car' : '1 week available rental car'}
                                     </div>
                                     <div className="gray-color font-size-13 py-1">
                                         <FontAwesomeIcon className="px-1" icon={faLocationDot}/>
-                                        address
+                                        {cities.map(city => city.id == result.locationId ? city.name : '')}
                                     </div>
                                 </div>
                             </div>
@@ -86,36 +86,39 @@ export default function Preview({setShowPreview}) {
                         <div className="rounded-3xl w-full primary-background-color mt-2">
 
                             <div className="px-6 py-4">
-                                <div className="text-color font-bold">Tesla Model X
+                                <div className="text-color font-bold">
+                                    {result.name}
+                                    <span className="px-1">
+                                        {brands.map(brand => brand.id == result.brandId ? brand.name : '')}
+                                    </span>
                                 </div>
                                 <div className="flex justify-between pt-4">
                                     <div className="flex items-center">
-                                        <FontAwesomeIcon className="item-property purple-color" icon={faBolt}/>
-                                        <p className="flex justify-center gray-color font-size-13">Gas</p>
-                                    </div>
-                                    <div className="flex items-center">
-                                        <FontAwesomeIcon className="item-property purple-color"
-                                                         icon={faGasPump}/>
-                                        <p className="flex justify-center gray-color font-size-13">Electric</p>
+                                        <FontAwesomeIcon className="item-property purple-color" icon={result.Fuel === 'Gas' ? faBolt : faGasPump}/>
+                                        <p className="flex justify-center gray-color font-size-13">{result.Fuel}</p>
                                     </div>
                                     <div className="flex items-center">
                                         <FontAwesomeIcon className="item-property red-white-color"
                                                          icon={faStopwatch}/>
-                                        <p className="flex justify-center gray-color font-size-13">Time</p>
+                                        <p className="flex justify-center gray-color font-size-13">{result.oneDayRentalAvailable ? '1 day available': '1 week available'}</p>
+                                    </div>
+                                    <div className="flex items-center">
+                                        <FontAwesomeIcon className="item-property yellow-color" icon={faCar}/>
+                                        <p className="flex justify-center gray-color font-size-13">{result.speed} speed</p>
                                     </div>
                                 </div>
                                 <div className="flex justify-between pt-4">
                                     <div className="flex items-center">
-                                        <FontAwesomeIcon className="item-property purple-color" icon={faBolt}/>
-                                        <p className="flex justify-center gray-color font-size-13">Gas</p>
+                                        <FontAwesomeIcon className="item-property green-color" icon={faDoorOpen}/>
+                                        <p className="flex justify-center gray-color font-size-13">{result.numOfDoors}</p>
                                     </div>
                                     <div className="flex items-center">
-                                        <FontAwesomeIcon className="item-property yellow-color" icon={faCar}/>
-                                        <p className="flex justify-center gray-color font-size-13">6 Speed</p>
+                                        <FontAwesomeIcon className="item-property yellow-color" icon={faChartLine}/>
+                                        <p className="flex justify-center gray-color font-size-13">{result.numOfDoors}</p>
                                     </div>
                                     <div className="flex items-center">
-                                        <FontAwesomeIcon className="item-property yellow-color" icon={faCar}/>
-                                        <p className="flex justify-center gray-color font-size-13">6 Speed</p>
+                                        <FontAwesomeIcon className="item-property blue-color" icon={faCircle}/>
+                                        <p className="flex justify-center gray-color font-size-13">{result.Cylinder}</p>
                                     </div>
                                 </div>
                             </div>
@@ -126,7 +129,7 @@ export default function Preview({setShowPreview}) {
                                     Description
                                 </div>
                                 <p className="gray-color pt-1">
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                                    {result.description}
                                 </p>
                             </div>
                         </div>
