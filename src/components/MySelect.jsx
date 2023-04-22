@@ -18,6 +18,14 @@ export default function MySelect({name}) {
             <FormControl sx={{m: 1, minWidth: 120}}>
                 <InputLabel id="demo-simple-select-helper-label">{name}</InputLabel>
                 <Select
+                    sx={{
+                        '& fieldset': {
+                            borderColor: '#767595', // custom border color
+                        },
+                        '&:hover fieldset': {
+                            borderColor: '#767595', // custom hover border color
+                        },
+                    }}
                     labelId="demo-simple-select-helper-label"
                     id="demo-simple-select-helper"
                     value={target}

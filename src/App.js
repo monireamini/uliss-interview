@@ -2,7 +2,7 @@ import './App.css';
 import Sidebar from "./components/sidebar/sidebar";
 import Card from "./components/card/card";
 import Search from "./components/search/search";
-import Slider from "./components/swiper";
+import Slider from "./components/slider";
 
 function App() {
 
@@ -10,9 +10,11 @@ function App() {
       <>
         <Sidebar/>
         <div className="width-sidebar">
-            <Search/>
-            <Slider/>
-            <Card/>
+            <div className="container-max-width">
+                <Search/>
+                <Slider/>
+                <Card/>
+            </div>
         </div>
       </>
   );

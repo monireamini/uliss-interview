@@ -25,8 +25,8 @@ export default function Card() {
 
     return (
         <div className="flex">
-            <div className={classNames("flex basis-full", {"basis-2/3": showPreview})}>
-                <div className="mx-auto max-w-2xl px-4 py-12 sm:px-12 sm:py-12 lg:max-w-7xl lg:px-12">
+            <div className={classNames("flex", {"width-card": showPreview})}>
+                <div className="mx-auto max-w-2xl px-4 py-8 sm:px-8 sm:py-8 lg:max-w-7xl lg:px-8">
                     <h2 className="gray-color mb-3">Active Car in ...</h2>
                     <div
                         className={classNames("grid grid-cols-1 gap-x-5 gap-y-5 xl:gap-x-5", {"grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3": showPreview}, {"sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4": !showPreview})}>

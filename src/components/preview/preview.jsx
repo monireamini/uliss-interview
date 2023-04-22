@@ -13,13 +13,13 @@ export default function Preview({setShowPreview, cars, cities, carID, brands}) {
 
     return (
         <>
-            <div className="flex basis-1/3 py-24 pr-10">
+            <div className="flex width-preview py-16 pr-10 container-mobile">
                 <div
                     className="mx-auto max-w-2xl py-8 px-2 lg:max-w-7xl secondary-background-color rounded-3xl w-full relative">
                     <button onClick={() => setShowPreview(false) } className="absolute top-0 right-0 gray-color font-size-24 p-3">
                         <FontAwesomeIcon icon={faTimesCircle}/>
                     </button>
-                    <a>
+                    <a href="#">
                         <div className="flex justify-center items-center">
                             <FontAwesomeIcon className="gray-color pr-1 font-size-24" icon={faLocationDot}/>
                         </div>

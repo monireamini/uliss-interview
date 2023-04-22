@@ -5,13 +5,14 @@ import * as React from "react";
 
 export default function Slider() {
     const brands = useSelector((state) => state.data.brands);
+    let width = window.innerWidth;
 
     return (
         <>
             <Swiper
                 className="mt-3"
                 spaceBetween={20}
-                slidesPerView={7}
+                slidesPerView={width < 576 ? 1 :width < 768 ? 2 : width < 900 ? 3 : width < 1024 ? 4 : width < 1250 ? 5 : 6 }
             >
                 {brands.map((item) =>
                     <SwiperSlide key={item.id}>

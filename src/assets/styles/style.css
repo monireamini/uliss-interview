@@ -132,3 +132,48 @@ body{
     width: 150px;
 }
 
+.container-max-width{
+    max-width: 1320px;
+    margin: auto;
+}
+
+@media screen and (min-width: 0px) and (max-width: 768px) {
+    .container-mobile{
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 5;
+        margin: 35px;
+        padding: 0;
+    }
+}
+
+.MuiInputBase-input{
+    color: var(--iconColor) !important;
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .width-preview{
+        flex-basis: 50.00%;
+    }
+    .width-card{
+        flex-basis: 50.00%;
+    }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1280px) {
+    .width-preview{
+        flex-basis: 42.00%;
+    }
+    .width-card{
+        flex-basis: 58.00%;
+    }
+}
+@media screen and (min-width: 1281px) {
+    .width-preview{
+        flex-basis: 33.33%;
+    }
+    .width-card{
+        flex-basis: 66.66%;
+    }
+}
