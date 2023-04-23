@@ -8,11 +8,11 @@ import {
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {useState} from "react";
 import classNames from "classnames";
-import Preview from "../preview/preview";
+import Preview from "./preview";
 import {useSelector} from "react-redux";
 
-export default function Card() {
-    const cars = useSelector((state) => state.data.cars);
+export default function Card({cars}) {
+
     const cities = useSelector((state) => state.data.cities);
     const brands = useSelector((state) => state.data.brands);
     const [carID, setCarID] = useState()

@@ -1,11 +1,12 @@
 import './App.css';
-import Sidebar from "./components/sidebar/sidebar";
-import Card from "./components/card/card";
-import Search from "./components/search/search";
+import Sidebar from "./components/sidebar";
+import Card from "./components/card";
+import Search from "./components/search";
 import Slider from "./components/slider";
+import {useSelector} from "react-redux";
 
 function App() {
-
+    const cars = useSelector((state) => state.data.cars);
   return (
       <>
         <Sidebar/>
@@ -13,7 +14,7 @@ function App() {
             <div className="container-max-width">
                 <Search/>
                 <Slider/>
-                <Card/>
+                <Card cars={cars}/>
             </div>
         </div>
       </>

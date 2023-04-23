@@ -1,6 +1,6 @@
-import MyDatePicker from "../MyDatePicker";
-import MyTextField from "../MyTextField";
-import MySelect from "../MySelect";
+import MyDatePicker from "./MyDatePicker";
+import MyTextField from "./MyTextField";
+import MySelect from "./MySelect";
 import { useSelector } from "react-redux";
 
 export default function Search() {

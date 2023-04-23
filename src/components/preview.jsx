@@ -19,7 +19,7 @@ export default function Preview({setShowPreview, cars, cities, carID, brands}) {
                     <button onClick={() => setShowPreview(false) } className="absolute top-0 right-0 gray-color font-size-24 p-3">
                         <FontAwesomeIcon icon={faTimesCircle}/>
                     </button>
-                    <a href="#">
+                    <a href="preview#">
                         <div className="flex justify-center items-center">
                             <FontAwesomeIcon className="gray-color pr-1 font-size-24" icon={faLocationDot}/>
                         </div>

@@ -1,8 +1,8 @@
-import '../../assets/styles/style.css';
+import '../assets/styles/style.css';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCar, faHome, faComment, faBell, faGear} from '@fortawesome/free-solid-svg-icons';
-import avatarPic from '../../assets/images/_D1A8546-min-min-min-min.jpg';
-import ButtonItems from "../buttonItems";
+import avatarPic from '../assets/images/_D1A8546-min-min-min-min.jpg';
+import ButtonItems from "./buttonItems";
 
 export default function Sidebar() {
 
