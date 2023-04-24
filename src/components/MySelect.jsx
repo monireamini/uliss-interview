@@ -6,16 +6,21 @@ import Select from '@mui/material/Select';
 import {useState} from "react";
 import {useSelector} from "react-redux";
 
-export default function MySelect({name}) {
+export default function MySelect({name, cars, setCars}) {
     const cities = useSelector((state) => state.data.cities);
     const [target, setTarget] = useState();
     const handleChange = (event) => {
         setTarget(event.target.value);
     };
 
+    function handleClick(id){
+        const filter = cars.filter(car => car.locationId === id);
+        setCars(filter);
+    }
+
     return (
         <div>
-            <FormControl sx={{m: 1, minWidth: 120}}>
+            <FormControl sx={{minWidth: 190}}>
                 <InputLabel id="demo-simple-select-helper-label">{name}</InputLabel>
                 <Select
                     sx={{
@@ -33,7 +38,7 @@ export default function MySelect({name}) {
                     onChange={handleChange}
                 >
                     {cities.map((item) =>
-                        <MenuItem key={item.id} value="item.name">
+                        <MenuItem onClick={() => handleClick(item.id)} key={item.id} value={item.id}>
                             <em>{item.name}</em>
                         </MenuItem>
                     )}

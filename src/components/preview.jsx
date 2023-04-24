@@ -48,7 +48,7 @@ export default function Preview({setShowPreview, cars, cities, carID, brands}) {
                                     </div>
                                     <div className="flex justify-between items-center">
                                         <div className="gray-color font-size-13">
-                                            seats: {result.numOfSeats}
+                                            available Months: {result.availableMonths.length}
                                         </div>
                                         <div className="gray-color font-size-16 font-bold">
                                             {result.rate}<FontAwesomeIcon className="font-size-13 px-1 blue-color"

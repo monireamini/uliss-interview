@@ -177,3 +177,11 @@ body{
         flex-basis: 66.66%;
     }
 }
+
+.swiper-button-prev {
+    color: var(--iconColor)!important;
+}
+
+.swiper-button-next {
+    color: var(--iconColor)!important;
+}

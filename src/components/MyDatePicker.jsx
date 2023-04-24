@@ -6,7 +6,7 @@ import * as React from "react";
 export default function MyDatePicker() {
     return (
         <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DatePicker sx={{'& .MuiOutlinedInput-root': {'& fieldset': {borderColor: '#767595'}}}}
+            <DatePicker sx={{'& .MuiOutlinedInput-root': {'& fieldset': {borderColor: '#767595'}},maxWidth: 190}}
                         color="primary"
             />
         </LocalizationProvider>
