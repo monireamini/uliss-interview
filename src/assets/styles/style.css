@@ -185,3 +185,8 @@ body{
 .swiper-button-next {
     color: var(--iconColor)!important;
 }
+
+.MuiSvgIcon-root,
+.MuiFormLabel-root{
+    color: var(--iconColor) !important;
+}

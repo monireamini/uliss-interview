@@ -6,8 +6,6 @@ import 'swiper/css/scrollbar';
 import {useSelector} from "react-redux";
 import * as React from "react";
 import { Navigation, Pagination, Scrollbar, A11y, Controller } from 'swiper';
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faCircleArrowLeft} from "@fortawesome/free-solid-svg-icons";
 
 export default function Slider({cars, setCars}) {
     const brands = useSelector((state) => state.data.brands);
